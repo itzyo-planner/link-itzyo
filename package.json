@@ -1,0 +1,8 @@
+{
+  "name": "link-itzyo",
+  "version": "1.0.0",
+  "description": "SNS 프로필 링크",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r src/* dist/"
+  }
+}
