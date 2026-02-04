@@ -3,25 +3,390 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>itzyo - SNS 프로필 링크</title>
+  <title>link-itzyo 관리</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="profile">
-      <div class="avatar">itzyo</div>
-      <h1 class="username">@itzyo</h1>
-      <p class="bio">SNS 프로필 링크</p>
+  <div class="app">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <button class="sidebar-btn" title="설정"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+      <button class="sidebar-btn" title="즐겨찾기"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></button>
+      <button class="sidebar-btn add-page" title="페이지 추가"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      <span class="sidebar-label">페이지 추가</span>
+    </aside>
+
+    <!-- Phone Preview -->
+    <div class="phone-preview-area">
+      <div class="phone-frame">
+        <div class="phone-top-bar">
+          <button class="phone-icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
+          <button class="phone-icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></button>
+        </div>
+        <div class="phone-content" id="phoneContent">
+          <div class="phone-profile">
+            <div class="phone-avatar" id="phoneAvatar">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="#fff"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <h2 class="phone-username" id="phoneUsername"></h2>
+            <p class="phone-bio" id="phoneBio"></p>
+          </div>
+          <div class="phone-links" id="phoneLinks"></div>
+          <div class="phone-block-placeholder">
+            <div class="placeholder-item">
+              <span class="placeholder-icon single">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              </span>
+              <div>
+                <div class="placeholder-title">단일 링크 블럭이 생성될 위치입니다</div>
+                <div class="placeholder-warn">url을 정확히 입력해 주세요</div>
+              </div>
+            </div>
+            <div class="placeholder-item">
+              <span class="placeholder-icon group">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              </span>
+              <div>
+                <div class="placeholder-title">그룹링크 블럭이 생성될 위치입니다</div>
+                <div class="placeholder-warn">링크를 하나 이상 추가해 주세요</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-footer">
+          <span class="phone-logo">MY 페이지 무료로 만들기 &gt;</span>
+          <div class="phone-remove-logo">로고 제거 <svg width="14" height="14" viewBox="0 0 24 24" fill="#999"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        </div>
+      </div>
+      <div class="url-bar">
+        <span>URL</span>
+        <a href="#">litt.ly/itzyo</a>
+        <button class="url-share"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
+      </div>
     </div>
-    <div class="links">
-      <a href="#" class="link-btn">GitHub</a>
-      <a href="#" class="link-btn">Twitter / X</a>
-      <a href="#" class="link-btn">Instagram</a>
-      <a href="#" class="link-btn">YouTube</a>
-    </div>
-    <footer class="footer">
-      &copy; 2026 itzyo
-    </footer>
+
+    <!-- Right Panel -->
+    <main class="main-panel">
+      <!-- Tabs -->
+      <nav class="tabs">
+        <button class="tab active" data-tab="page"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 페이지</button>
+        <button class="tab" data-tab="design"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg> 디자인</button>
+        <button class="tab" data-tab="analytics"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg> 분석</button>
+        <button class="tab" data-tab="manage"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 관리</button>
+        <button class="tab" data-tab="marketing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg> 마케팅</button>
+      </nav>
+
+      <!-- Tab Contents -->
+      <div class="tab-content active" id="tab-page">
+        <!-- 프로필 섹션 -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-toggle">
+              <label class="toggle"><input type="checkbox" checked id="profileToggle"><span class="toggle-slider"></span></label>
+              <h3>프로필</h3>
+            </div>
+            <button class="collapse-btn" data-target="profileBody"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+          </div>
+          <div class="section-body" id="profileBody">
+            <div class="field">
+              <label>레이아웃</label>
+              <div class="layout-options">
+                <button class="layout-opt active" data-layout="center">
+                  <div class="layout-thumb center-layout"><div class="lt-avatar"></div><div class="lt-line"></div><div class="lt-line short"></div></div>
+                </button>
+                <button class="layout-opt" data-layout="left">
+                  <div class="layout-thumb left-layout"><div class="lt-avatar small"></div><div class="lt-line"></div><div class="lt-line short"></div></div>
+                </button>
+                <button class="layout-opt" data-layout="right">
+                  <div class="layout-thumb right-layout"><div class="lt-avatar small"></div><div class="lt-line"></div><div class="lt-line short"></div></div>
+                </button>
+                <button class="layout-opt" data-layout="wide">
+                  <div class="layout-thumb wide-layout"><div class="lt-avatar small"></div><div class="lt-lines"><div class="lt-line"></div><div class="lt-line short"></div></div></div>
+                </button>
+              </div>
+            </div>
+            <div class="field">
+              <label>이미지 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></label>
+              <div class="image-upload">
+                <div class="avatar-preview" id="avatarPreview">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="#ccc"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  <button class="camera-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></button>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>대표문구</label>
+              <input type="text" id="titleInput" placeholder="사용자 이름 또는 상호명 등 대표 문구" class="input">
+            </div>
+            <div class="field">
+              <label>상세문구</label>
+              <input type="text" id="bioInput" placeholder="추가 설명을 남길 수 있습니다" class="input">
+            </div>
+            <div class="field">
+              <label>글자 크기</label>
+              <div class="size-options">
+                <button class="size-opt active" data-size="small">소</button>
+                <button class="size-opt" data-size="medium">중</button>
+                <button class="size-opt" data-size="large">대</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 단일 링크 -->
+        <section class="section">
+          <div class="section-header clickable" data-target="singleLinkBody">
+            <div class="section-title-row">
+              <span class="section-icon single"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></span>
+              <h3>단일 링크</h3>
+            </div>
+            <button class="collapse-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="section-body collapsed" id="singleLinkBody">
+            <div class="link-item-form">
+              <div class="field">
+                <label>링크 제목</label>
+                <input type="text" placeholder="링크 제목을 입력하세요" class="input" id="singleLinkTitle">
+              </div>
+              <div class="field">
+                <label>URL</label>
+                <input type="url" placeholder="https://" class="input" id="singleLinkUrl">
+              </div>
+              <button class="btn-add-link" id="addSingleLink">링크 추가</button>
+            </div>
+            <div id="singleLinkList"></div>
+          </div>
+        </section>
+
+        <!-- 그룹 링크 -->
+        <section class="section">
+          <div class="section-header clickable" data-target="groupLinkBody">
+            <div class="section-title-row">
+              <span class="section-icon group"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></span>
+              <h3>그룹 링크</h3>
+            </div>
+            <button class="collapse-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="section-body collapsed" id="groupLinkBody">
+            <div class="link-item-form">
+              <div class="field">
+                <label>그룹 이름</label>
+                <input type="text" placeholder="그룹 이름을 입력하세요" class="input" id="groupLinkName">
+              </div>
+              <div class="field">
+                <label>링크 제목</label>
+                <input type="text" placeholder="링크 제목을 입력하세요" class="input" id="groupLinkTitle">
+              </div>
+              <div class="field">
+                <label>URL</label>
+                <input type="url" placeholder="https://" class="input" id="groupLinkUrl">
+              </div>
+              <button class="btn-add-link" id="addGroupLink">링크 추가</button>
+            </div>
+            <div id="groupLinkList"></div>
+          </div>
+        </section>
+
+        <!-- 블록 추가 -->
+        <button class="btn-block-add">+블록 추가</button>
+      </div>
+
+      <!-- 디자인 탭 -->
+      <div class="tab-content" id="tab-design">
+        <section class="section">
+          <h3 class="section-label">디자인</h3>
+          <div class="field">
+            <label>배경색</label>
+            <div class="color-grid bg-colors">
+              <button class="color-swatch active" data-bg="#ffffff" style="background:linear-gradient(135deg,#fff 50%,#000 50%)"></button>
+              <button class="color-swatch" data-bg="#e8f5e9" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7)"></button>
+              <button class="color-swatch" data-bg="#e3f2fd" style="background:linear-gradient(135deg,#e3f2fd,#90caf9)"></button>
+              <button class="color-swatch" data-bg="#f3e5f5" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8)"></button>
+              <button class="color-swatch custom-color" data-bg="custom"><span>색상 선택</span></button>
+              <button class="color-swatch photo-upload" data-bg="photo"><span>사진 업로드</span></button>
+            </div>
+          </div>
+          <div class="field">
+            <label>버튼색</label>
+            <div class="color-grid btn-colors">
+              <button class="btn-color-swatch active" data-btncolor="#000000" style="background:#000"></button>
+              <button class="btn-color-swatch" data-btncolor="#1b5e20" style="background:linear-gradient(135deg,#1b5e20,#4caf50)"></button>
+              <button class="btn-color-swatch" data-btncolor="#1565c0" style="background:#1565c0"></button>
+              <button class="btn-color-swatch" data-btncolor="#e91e63" style="background:#e91e63"></button>
+              <button class="btn-color-swatch" data-btncolor="#81c784" style="background:#81c784"></button>
+              <button class="btn-color-swatch" data-btncolor="#ffcc80" style="background:#ffcc80"></button>
+              <button class="btn-color-swatch custom-btn-color" data-btncolor="custom"><span>색/칼</span></button>
+            </div>
+            <div class="radio-group">
+              <label><input type="radio" name="colorApply" value="partial" checked> 부분 적용</label>
+              <label><input type="radio" name="colorApply" value="full"> 전체 적용</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>버튼 모양</label>
+            <div class="shape-options">
+              <button class="shape-opt active" data-shape="square"><div class="shape-thumb square"></div></button>
+              <button class="shape-opt" data-shape="rounded"><div class="shape-thumb rounded"></div></button>
+              <button class="shape-opt" data-shape="pill"><div class="shape-thumb pill"></div></button>
+            </div>
+          </div>
+          <div class="field">
+            <label>버튼 액션</label>
+            <div class="action-options">
+              <button class="action-opt active" data-action="none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></button>
+              <button class="action-opt" data-action="wave"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s2-4 4-4 4 4 4 4 2-4 4-4 4 4 4 4"/></svg></button>
+              <button class="action-opt" data-action="bounce"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 17l4-8 4 8"/></svg></button>
+              <button class="action-opt" data-action="flip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/></svg></button>
+              <button class="action-opt" data-action="cross"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+            </div>
+          </div>
+          <div class="field">
+            <label>폰트 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></label>
+            <div class="font-grid">
+              <button class="font-opt active" data-font="'Noto Sans KR', sans-serif" style="font-family:'Noto Sans KR',sans-serif;background:#000;color:#fff">안녕하세요!</button>
+              <button class="font-opt" data-font="'Nanum Gothic', sans-serif">안녕하세요!</button>
+              <button class="font-opt" data-font="'Nanum Myeongjo', serif" style="font-family:serif">안녕하세요!</button>
+              <button class="font-opt" data-font="'Gowun Dodum', sans-serif">안 녕 하 세 요 !</button>
+              <button class="font-opt" data-font="'Jua', sans-serif">안녕하세요!</button>
+              <button class="font-opt" data-font="monospace">-</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 분석 탭 -->
+      <div class="tab-content" id="tab-analytics">
+        <div class="analytics-toolbar">
+          <select class="select-period">
+            <option>일주일</option>
+            <option>한달</option>
+            <option>3개월</option>
+          </select>
+          <button class="btn-download" disabled>다운로드 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></button>
+        </div>
+        <section class="section">
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-dot blue"></span> 클릭수</span>
+            <span class="legend-item"><span class="legend-dot red"></span> 조회수</span>
+          </div>
+          <div class="chart-area">
+            <div class="chart-placeholder">
+              <div class="chart-y"><span>1</span><span>0</span></div>
+              <div class="chart-grid"></div>
+            </div>
+          </div>
+        </section>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div class="stat-label">조회수</div>
+            <div class="stat-value">-회</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/></svg></div>
+            <div class="stat-label">클릭수 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+            <div class="stat-value">-회</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="stat-label">클릭율 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+            <div class="stat-value">0%</div>
+          </div>
+        </div>
+        <section class="section">
+          <div class="section-header">
+            <h3>유입 채널 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></h3>
+            <span class="badge">TOP5</span>
+          </div>
+          <div class="donut-chart">
+            <svg viewBox="0 0 120 120" width="160" height="160">
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#e0e0e0" stroke-width="20"/>
+            </svg>
+          </div>
+          <div class="chart-legend-list">
+            <div class="legend-row"><span class="legend-bar"></span> -</div>
+            <div class="legend-row"><span class="legend-bar"></span> -</div>
+            <div class="legend-row"><span class="legend-bar"></span> -</div>
+            <div class="legend-row"><span class="legend-bar"></span> -</div>
+            <div class="legend-row"><span class="legend-bar"></span> -</div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-header">
+            <h3>유입 국가 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></h3>
+            <span class="badge">TOP5</span>
+          </div>
+          <div class="donut-chart">
+            <svg viewBox="0 0 120 120" width="160" height="160">
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#e0e0e0" stroke-width="20"/>
+            </svg>
+          </div>
+        </section>
+      </div>
+
+      <!-- 관리 탭 -->
+      <div class="tab-content" id="tab-manage">
+        <section class="dark-section">
+          <div class="dark-section-header">
+            <span>고객 정보 &nbsp;|&nbsp; 총 0건</span>
+            <a href="#" class="detail-link">상세보기</a>
+          </div>
+          <div class="manage-list">
+            <div class="manage-item"><span class="manage-icon">💬</span> 문의 <span class="manage-count">0건</span></div>
+            <div class="manage-item"><span class="manage-icon">📅</span> 일정 <span class="manage-count">0건</span></div>
+            <div class="manage-item"><span class="manage-icon">📁</span> 파일공유 <span class="manage-count">0건</span></div>
+            <div class="manage-item"><span class="manage-icon">👤</span> 고객정보 <span class="manage-count">0건</span></div>
+            <div class="manage-item"><span class="manage-icon">🔔</span> 구독 <span class="manage-count">0건</span></div>
+          </div>
+        </section>
+        <section class="dark-section green">
+          <div class="dark-section-header">
+            <span>매출 현황 &nbsp;|&nbsp; 정산 예정금: 0원</span>
+            <a href="#" class="detail-link">상세보기</a>
+          </div>
+          <div class="manage-list">
+            <div class="manage-item"><span class="manage-icon">💰</span> 판매 <span class="manage-count">0원</span></div>
+            <div class="manage-item"><span class="manage-icon">❤️</span> 후원 <span class="manage-count">0원</span></div>
+          </div>
+        </section>
+        <section class="dark-section yellow">
+          <div class="dark-section-header">
+            <span>광고 수익 &nbsp;|&nbsp; 정산 예정금: 0원</span>
+            <a href="#" class="detail-link">상세보기</a>
+          </div>
+          <div class="manage-list">
+            <div class="manage-item"><span class="manage-icon">📺</span> 광고 <span class="manage-count">0원</span></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 마케팅 탭 -->
+      <div class="tab-content" id="tab-marketing">
+        <section class="section marketing-card">
+          <div class="marketing-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="marketing-title">단체 이메일 발송</div>
+            <div class="marketing-desc">발송 가능 메일 수 : 100건 / 100건</div>
+          </div>
+        </section>
+        <section class="section marketing-card">
+          <div class="marketing-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+          <div>
+            <div class="marketing-title">인스타 DM 자동 발송</div>
+            <div class="marketing-desc">100% 무료 이용 제공</div>
+          </div>
+        </section>
+        <section class="section marketing-card disabled">
+          <div class="marketing-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <div>
+            <div class="marketing-title" style="color:#ccc">단체 문자 발송 (준비중)</div>
+            <div class="marketing-desc" style="color:#ddd">발송 가능 문자수 : 0건 / 0건</div>
+          </div>
+        </section>
+      </div>
+    </main>
   </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
